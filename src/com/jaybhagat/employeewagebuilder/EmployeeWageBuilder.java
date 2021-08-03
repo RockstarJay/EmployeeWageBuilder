@@ -22,7 +22,7 @@ public class EmployeeWageBuilder {
 		int monthlyWage = 0;
 		
 		for (int i = 0; i < MONTHLY_WORKING_DAYS; i++) {
-			double emp_Check = (int) (Math.floor(Math.random() * 10)) % 3;    // generates three random numbers either 0 or 1 or 2
+			double emp_Check = (Math.floor(Math.random() * 10)) % 3;    // generates three random numbers either 0 or 1 or 2
 			
 			switch ((int)emp_Check) {
 				case IS_FULL_TIME:
