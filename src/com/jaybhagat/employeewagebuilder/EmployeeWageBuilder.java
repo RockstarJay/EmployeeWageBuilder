@@ -11,18 +11,18 @@ public class EmployeeWageBuilder {
 		System.out.println("Welcome to Employee Wage Computation");
 		
 		int IS_PRESENT = 1;
-		int WagePerHour = 20;
-		int DayHour = 0;
-		int DailyWage = 0;
-		double emp_Check = (int) (Math.floor(Math.random() * 10)) % 2;    // generates two random numbers either 0 or 1
-		if (emp_Check == IS_PRESENT) {
+		int wagePerHour = 20;
+		int dayHour = 0;
+		int dailyWage = 0;
+		double empCheck = (int) (Math.floor(Math.random() * 10)) % 2;    // generates two random numbers either 0 or 1
+		if (empCheck == IS_PRESENT) {
 			System.out.println("Employee is Present");
-			DayHour = 8;
+			dayHour = 8;
 		}
 		else {
 			System.out.println("Employee is Absent");
 		}
-		DailyWage = WagePerHour * DayHour;     // calculate daily wage
-		System.out.println("Employee Daily Wage is: " +DailyWage);
+		dailyWage = wagePerHour * dayHour;                         // calculate daily wage
+		System.out.println("Employee Daily Wage is: " +dailyWage);
 	}
 }
