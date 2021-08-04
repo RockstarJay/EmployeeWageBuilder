@@ -17,9 +17,9 @@ public class EmployeeWageBuilder {
 		
 		int dayHour = 0;
 		int dailyWage = 0;
-		double emp_Check = (int) (Math.floor(Math.random() * 10)) % 3;    // generates three random numbers either 0 or 1 or 2
+		double empCheck = (Math.floor(Math.random() * 10)) % 3;    // generates three random numbers either 0 or 1 or 2
 		
-		switch ((int)emp_Check) {
+		switch ((int)empCheck) {
 			case IS_FULL_TIME:
 				System.out.println("Employee is Present Full Time");
 				dayHour = 8;
