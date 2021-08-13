@@ -1,11 +1,8 @@
 package com.jaybhagat.employeewagebuilder;
 
 /**
- * class to check the attendance of employee if he present for full time, half time or absent using switch case
- * calculate the daily wage of employee depending on attendance
- * calculating working hours to compare with monthly working hours
- * looping till monthly working days or working hours reached to required
- * adding daily wage to calculate monthly wage and showing result
+ * class to get employee wages  for different companies as Each Company has its own 
+ * wage, number of working days and working hours per month
  * @author com.jaybhagat
  */
 
@@ -13,14 +10,24 @@ public class EmployeeWageBuilder {
 	// class level variable or constants
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
-	public static final int WAGE_PER_HOUR = 20;
-	public static final int MONTHLY_WORKING_DAYS = 20;
-	public static final int MONTHLY_WORKING_HOURS = 100;
+	public static int wagePerHour;
+	public static int monthlyWorkingDays;
+	public static int monthlyWorkingHours;
+	public static String companyName;
+	
+	EmployeeWageBuilder(String companyName, int monthlyWorkingHours, int monthlyWorkingDays, int wagePerHour) {
+		EmployeeWageBuilder.companyName = companyName;
+		EmployeeWageBuilder.monthlyWorkingHours = monthlyWorkingHours;
+		EmployeeWageBuilder.monthlyWorkingDays = monthlyWorkingDays;
+		EmployeeWageBuilder.wagePerHour = wagePerHour;
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation");
-		EmployeeWageBuilder empwage = new EmployeeWageBuilder();
-		empwage.getEmployeeWage();
+		// object for providing arguments to the method 
+		EmployeeWageBuilder empwage = new EmployeeWageBuilder(companyName,monthlyWorkingHours,monthlyWorkingDays,wagePerHour);
+		empwage.getEmployeeWage("Jay", 100,20,20);
+		empwage.getEmployeeWage("Kumar", 100,20,20);
 	}
 	
 	/*
@@ -29,13 +36,13 @@ public class EmployeeWageBuilder {
 	 * adding into monthly wage
 	 * calculating working hours to compare with monthly working hours
 	 */
-	public void getEmployeeWage() {
+	public void getEmployeeWage(String companyName,int monthlyWorkingHours,int monthlyWorkingDays,int wagePerHour) {
 		int dayHour = 0;
 		int dailyWage = 0;
 		int monthlyWage = 0;
 		int workingHours = 0;
 		
-		for (int i = 0; i < MONTHLY_WORKING_DAYS && workingHours < MONTHLY_WORKING_HOURS; i++) {
+		for (int i = 0; i < monthlyWorkingDays && workingHours < monthlyWorkingHours; i++) {
 			double emp_Check = (Math.floor(Math.random() * 10)) % 3;
 			
 			switch ((int)emp_Check) {
@@ -50,10 +57,10 @@ public class EmployeeWageBuilder {
 				default:
 					dayHour = 0;
 			}
-			dailyWage = WAGE_PER_HOUR * dayHour;
+			dailyWage = wagePerHour * dayHour;
 			monthlyWage += dailyWage;
 			workingHours += dayHour;
 		}	
-		System.out.println("\nMonthly Employee Wage is: " +monthlyWage);
+		System.out.println("\nMonthly Employee Wage for Company "+ companyName+ " is : " +monthlyWage);
 	}
 }
