@@ -1,8 +1,8 @@
 package com.jaybhagat.employeewagebuilder;
 
 /**
- * class to get employee wages  for different companies as Each Company has its own 
- * wage, number of working days and working hours per month
+ * class to get employee wage using separate object for each company
+ * object has wage, number of working days and working hours per month
  * @author com.jaybhagat
  */
 
@@ -25,9 +25,10 @@ public class EmployeeWageBuilder {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation");
 		// object for providing arguments to the method 
-		EmployeeWageBuilder empwage = new EmployeeWageBuilder(companyName,monthlyWorkingHours,monthlyWorkingDays,wagePerHour);
-		empwage.getEmployeeWage("Jay", 100,20,20);
-		empwage.getEmployeeWage("Kumar", 100,20,20);
+		EmployeeWageBuilder empwage = new EmployeeWageBuilder("IBM", 100,20,20);
+		EmployeeWageBuilder empwage1 = new EmployeeWageBuilder("Infosys", 80,10,15);
+		empwage.getEmployeeWage();
+		empwage1.getEmployeeWage();
 	}
 	
 	/*
@@ -36,7 +37,7 @@ public class EmployeeWageBuilder {
 	 * adding into monthly wage
 	 * calculating working hours to compare with monthly working hours
 	 */
-	public void getEmployeeWage(String companyName,int monthlyWorkingHours,int monthlyWorkingDays,int wagePerHour) {
+	public void getEmployeeWage() {
 		int dayHour = 0;
 		int dailyWage = 0;
 		int monthlyWage = 0;
